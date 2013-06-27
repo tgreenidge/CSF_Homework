@@ -19,8 +19,8 @@ public class Lesson02Samples {
         //allAs();
         //reverseNumbers();
         //reverseArray();
-        //isGeneticSequence();
-        inputAndSearch();
+        isGeneticSequence();
+        //inputAndSearch();
         //calculator();
     }
 
@@ -63,7 +63,6 @@ public class Lesson02Samples {
             }
         }
         return true;
-
     }
 
     // Methods to fill in
@@ -122,7 +121,6 @@ public class Lesson02Samples {
 //        }
 
         for(int i = 1; i < n / 2 + 1; i++){
-
             placeholder = array[i - 1];
             array[i - 1] = array[n - i];
             array[n - i] = placeholder;
@@ -131,7 +129,6 @@ public class Lesson02Samples {
             if((n % 2 == 0) && (i == n / 2)){
                 i += 2;
             }
-
         }
 
         for(int x = 0; x < n; x++ ){
@@ -145,13 +142,37 @@ public class Lesson02Samples {
         System.out.println("Please enter any line of text that you wish: ");
         String response = scanner.next();
         // 2) If the string contains only the characters 'G', 'A', 'T', or 'C' (case-sensitive) print true
+        //3 else print false
         int i = 0;
+        int g = 0;
+        int a = 0;
+        int t = 0;
+        int c = 0;
         while(i < response.length()){
-           //if(response.charAt(i) isin ('G', 'A', 'T', 'C')){
-        //}
 
-        // 3) Otherwise, print false
+            char character = response.charAt(i);
+            if(character =='G'){
+                g += 1;
+            }
+            else if(character == 'A'){
+                a += 1;
+            }
+            else if(character == 'T'){
+                t += 1;
+            }
+            else if(character== 'C'){
+                c += 1;
+            }
+           i++;
         }
+
+        if( (g + a + t + c) == response.length()){
+            System.out.println(true);
+        }
+        else {
+            System.out.println(false);
+        }
+
     }
 
     public static void inputAndSearch() {
@@ -171,8 +192,8 @@ public class Lesson02Samples {
             Boolean isThere = false;
             System.out.println("Please enter a search word");
             String searchWord = scanner.next();
-        // 3) If the word exists in the first 10 words, print true, otherwise print false
 
+        // 3) If the word exists in the first 10 words, print true, otherwise print false   `
             int x = 0;
             while((x < words.size()) && (isThere == false)){
                 if(words.get(x).equals(searchWord)){
@@ -182,9 +203,9 @@ public class Lesson02Samples {
                 else{
                     x += 1;
                 }
-
             }
             System.out.println("The word " + searchWord + " is in the list? " + isThere);
+
         // 4) Return to step 2
             System.out.println("Would you like to search for another word(yes/no)? ");
             searchAgain = scanner.next().trim();
